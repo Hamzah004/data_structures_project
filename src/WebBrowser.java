@@ -18,8 +18,8 @@ public class WebBrowser {
         WebPageRequest nextRequest = pageRequestQueue.processNext();
         if(nextRequest != null){
             WebPage page = new WebPage(nextRequest.getUrl(), "content in "+nextRequest.getUrl());
-            tab_bar.NewTab(nextRequest);
-            System.out.println(nextRequest.getUrl()+" has been added to the Tab_Bar.");
+            tab_bar.NewTab(page);
+            System.out.println(page.getUrl()+" has been added to the Tab_Bar.");
             historyStack.pushPage(page);
             bookmarksAndHistory.addRecentHistory(page);
             System.out.println("page is loaded.");
@@ -61,14 +61,5 @@ public class WebBrowser {
     }
 
 
-    public WebPageRequest retainPrevWebPage(WebPageRequest p)
-    {
-         WebPageRequest page=tab_bar.retainTab(p);
-        return page;
-    }
-    public WebPageRequest deleteTab(WebPageRequest p){
-        WebPageRequest page = tab_bar.DeleteTab(p);
-        return page;
-    }
 
 }

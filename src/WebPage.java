@@ -6,6 +6,11 @@ public class WebPage {
         this.url = url;
         this.content = content;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
     @Override
     public String toString() {
         return "URL: "+url+"\tcontent: "+content;

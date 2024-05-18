@@ -2,25 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tab_Bar {
-    ArrayList<WebPageRequest> tabs;
+    ArrayList<WebPage> tabs;
 
     public Tab_Bar() {
         tabs = new ArrayList<>();
     }
-    public void NewTab(WebPageRequest page){
+    public void NewTab(WebPage page){
         tabs.add(page);
     }
-    public WebPageRequest DeleteTab(WebPageRequest page){
-        WebPageRequest p=page;
+    public void DeleteTab(WebPage page){
         tabs.remove(page);
-        return p;
     }
-    public WebPageRequest retainTab(WebPageRequest page){
-        WebPageRequest page1=DeleteTab(page);
-        tabs.add(page1);
-        return page1;
-    }
-    public List<WebPageRequest> viewTab(){
+    public List<WebPage> viewTab(){
         return tabs;
     }
 
