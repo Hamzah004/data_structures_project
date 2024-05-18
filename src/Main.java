@@ -6,7 +6,6 @@ public class Main {
         browser.loadPage("Web Page3");
         browser.viewBookmarks();
         browser.viewHistory();
-        browser.viewTabs();
         browser.addBookmark("Web Page1");
         browser.addBookmark("Web Page2");
         browser.viewBookmarks();

@@ -3,14 +3,12 @@ public class WebBrowser {
     private HistoryStack historyStack;
     private  ForwardStack forwardStack;
     private BookmarksAndHistory bookmarksAndHistory;
-    private Tab_Bar tab_bar;
 
     public WebBrowser(){
         pageRequestQueue = new PageRequestQueue();
         historyStack = new HistoryStack();
         forwardStack = new ForwardStack();
         bookmarksAndHistory = new BookmarksAndHistory();
-        tab_bar = new Tab_Bar();
     }
     public  void loadPage(String url){
         WebPageRequest pageRequest= new WebPageRequest(url);
@@ -18,11 +16,9 @@ public class WebBrowser {
         WebPageRequest nextRequest = pageRequestQueue.processNext();
         if(nextRequest != null){
             WebPage page = new WebPage(nextRequest.getUrl(), "content in "+nextRequest.getUrl());
-            tab_bar.NewTab(page);
-            System.out.println(page.getUrl()+" has been added to the Tab_Bar.");
             historyStack.pushPage(page);
             bookmarksAndHistory.addRecentHistory(page);
-            System.out.println("page is loaded.");
+            System.out.println(page.getUrl()+" is loaded.");
         }else System.out.println("invalid page request");
     }
     public void navigateBack(){
@@ -56,9 +52,6 @@ public class WebBrowser {
         System.out.println("Bookmarks: "+bookmarksAndHistory.viewBookmarks());
     }
 
-    public void viewTabs(){
-        System.out.println("Tabs opened: "+tab_bar.viewTab());
-    }
 
 
 

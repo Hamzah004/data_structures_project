@@ -12,7 +12,4 @@ public class PageRequestQueue {
     public WebPageRequest processNext(){
         return requestQueue.poll();
     }
-    public boolean isEmpty(){
-        return requestQueue.isEmpty();
-    }
 }
